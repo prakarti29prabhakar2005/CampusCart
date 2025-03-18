@@ -2,12 +2,21 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-
+const serviceProviderRouter =require("./routes/serviceProvider")
 const app = express();
+
+
 app.use(cors());
 app.use(express.json());
+app.use("/serviceProvider",serviceProviderRouter)
 
-mongoose.connect(process.env.MONGO_URI, {
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+/*mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log("MongoDB Connected"))
@@ -26,4 +35,4 @@ app.use("/service-provider", serviceProviderRoutes);
 app.post('/service-provider/add', (req, res) => {
     res.send("Service Provider Added!"); // Dummy response
 });
-
+*/
