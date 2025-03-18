@@ -4,6 +4,8 @@ const ServiceProviderSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
+  address: String,
+  description: String,
   services: [String],
 });
 
