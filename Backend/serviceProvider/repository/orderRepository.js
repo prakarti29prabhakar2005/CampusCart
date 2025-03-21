@@ -14,9 +14,17 @@ const OrderRepository = {
         return await Order.findByIdAndUpdate(orderId, {status: newStatus}, {new: true});
     },
 
+    async updatePaymentStatus(orderId, paymentStatus) {
+        return await Order.findByIdAndUpdate(orderId, { paymentStatus }, { new: true });
+    },
+
     async getAllOrders() {
         return await Order.find().populate("customerId serviceProviderId productsOrdered.productId");
+    },
+
+    async deleteOrder(orderId) {
+        return await Order.findByIdAndDelete(orderId);
     }
 }
 
-model.exports = OrderRepository;
+module.exports = OrderRepository;

@@ -12,6 +12,7 @@ const orderSchema = new mongoose.model({
     totalPrice: {type: Number, required: true},
     deliveryAddress: {type: String, required: true},
     status: {type: String, enum: ['Pending', 'Completed', 'Cancelled'], default: 'Pending'},
+    paymentId: { type: mongoose.Schema.Types.ObjectId, ref: "Payment" },
 }, {timestamps: true});
 
 module.exports = mongoose.model('Order', orderSchema);
