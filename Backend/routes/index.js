@@ -13,6 +13,6 @@ const router = express.Router();
 // router.use("/service-providers", serviceProviderRoutes);
 // router.use("/inventory", inventoryRoutes);
 // router.use("/orders", orderRoutes);
-// router.use("/products", productRoutes);
+router.use("/products", productRoutes);
 
 module.exports = router;

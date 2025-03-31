@@ -1,4 +1,4 @@
-const Product = require("../db/productModel");
+const Product = require("../../db/productModel");
 
 const ProductRepository = {
     async createProduct(productData) {
@@ -12,14 +12,14 @@ const ProductRepository = {
     async updateProduct(productId, updatedData) {
         const updatedProduct = await Product.findByIdAndUpdate(productId, updatedData, {new: true});
         if(updatedProduct.quantityAvailable === 0) {
-            await Product.Product.findByIdAndUpdate(productId, { visibility: false });
+            await Product.findByIdAndUpdate(productId, { visibility: false });
         }
         return updatedProduct;
     },
 
-    async toggleProductVisibility(productId, visibilityStatus) {
-        return await Product.findByIdAndUpdate(productId, { visibility: visibilityStatus }, { new: true });
-    },
+    // async toggleProductVisibility(productId, visibilityStatus) {
+    //     return await Product.findByIdAndUpdate(productId, { visibility: visibilityStatus }, { new: true });
+    // },
 
     async getAllProducts() {
         return await Product.find();
