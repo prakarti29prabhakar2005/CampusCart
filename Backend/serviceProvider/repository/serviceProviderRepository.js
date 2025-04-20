@@ -1,4 +1,4 @@
-const ServiceProvider = require('../db/serviceProviderModel');
+const ServiceProvider = require('../../db/serviceProviderModel');
 
 const ServiceProviderRepository = {
     async createServiceProvider(serviceProviderData) {

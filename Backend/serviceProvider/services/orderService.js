@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const OrderRepository = require('../repository/orderRepository');
 
 const OrderService = {
@@ -22,9 +23,12 @@ const OrderService = {
         return await OrderRepository.getAllOrders();
     },
 
-    async deleteOrder(orderId) {
-        return await OrderRepository.deleteOrder(orderId);
-    }
+    // async deleteOrder(orderId) {
+    //     return await OrderRepository.deleteOrder(orderId);
+    // }
+    async deleteOrder(id) {
+        return await Order.findByIdAndDelete(new mongoose.Types.ObjectId(id));
+    },
 };
 
 module.exports = OrderService;

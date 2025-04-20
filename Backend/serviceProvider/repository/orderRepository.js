@@ -1,5 +1,4 @@
-const { model } = require("mongoose");
-const Order = require("../db/orderModel");
+const Order = require("../../db/orderModel");
 
 const OrderRepository = {
     async createOrder(orderData) {
