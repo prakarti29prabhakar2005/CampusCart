@@ -14,4 +14,4 @@ const InventoryRepository = {
     }
 }
 
-module.exports = InventoryRepository;
+module.exports = InventoryRepository; 

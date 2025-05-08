@@ -1,12 +1,6 @@
-const mongoose = require("mongoose");
 const OrderRepository = require('../repository/orderRepository');
 
 const OrderService = {
-    async createOrder(orderDate) {
-        // will pass email notification for order placing for customer and service provider later
-        return await OrderRepository.createOrder(orderDate);
-    },
-
     async getOrderById(orderId) {
         return await OrderRepository.getOrderById(orderId);
     },
@@ -23,12 +17,9 @@ const OrderService = {
         return await OrderRepository.getAllOrders();
     },
 
-    // async deleteOrder(orderId) {
-    //     return await OrderRepository.deleteOrder(orderId);
-    // }
-    async deleteOrder(id) {
-        return await Order.findByIdAndDelete(new mongoose.Types.ObjectId(id));
-    },
+    async deleteOrder(orderId) {
+        return await OrderRepository.deleteOrder(orderId);
+    }
 };
 
 module.exports = OrderService;
