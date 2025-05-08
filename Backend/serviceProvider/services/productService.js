@@ -2,7 +2,7 @@ const ProductRepository = require('../repository/productRepository');
 
 const ProductService = {
     async createProduct(productData) {
-        // mail to all the previous customers who used this particular service provider services that any new product is added to try
+        
         return await ProductRepository.createProduct(productData);
     },
 
