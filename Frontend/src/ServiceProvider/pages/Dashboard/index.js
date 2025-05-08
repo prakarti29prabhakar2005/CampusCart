@@ -1,7 +1,8 @@
+import '../../../App.css';
 const Dashboard = () => {
     return (
         <>
-        <h1>Hi</h1>
+        <h1>Dashboard page</h1>
         </>
     )
 }
