@@ -9,6 +9,7 @@ import LoginPage from "./Components/Auth/LoginPage";
 import RegisterPage from "./Components/Auth/RegisterPage";
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import AdminDashboard from "./Admin/Dashboard/AdminDashboard";
+import SplashScreen from "./Components/Auth/SplashScreen";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Header />} />
         <Route path="/inventory" element={<InventoryPage />} /> */}
+        <Route path="/" element={<SplashScreen />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route
