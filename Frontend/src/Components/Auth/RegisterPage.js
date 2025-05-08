@@ -6,18 +6,46 @@ import {
   CssBaseline,
   Grid,
   TextField,
+  MenuItem,
   Typography,
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
-  const handleRegister = async () => {};
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    console.log("Register clicked");
+    try {
+      const payload = { name, email, password, role };
+      const endpoint =
+        role === "serviceProvider"
+          ? "http://localhost:5001/api/service-providers"
+          : "http://localhost:5001/api/customer";
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (response.ok) {
+        if (role === "serviceProvider") {
+          navigate("/service-provider-dashboard");
+        }
+      } else {
+        alert("Registration failed!");
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
+  };
 
   return (
     <>
@@ -72,6 +100,19 @@ const RegisterPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+              </Grid>
+              <Grid item xs={12} sx={{ width: "100%" }}>
+                <TextField
+                  select
+                  fullWidth
+                  label="Select Role"
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  required
+                >
+                  <MenuItem value="customer">Customer</MenuItem>
+                  <MenuItem value="serviceProvider">Service Provider</MenuItem>
+                </TextField>
               </Grid>
             </Grid>
             <Button

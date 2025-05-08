@@ -1,4 +1,5 @@
-import CampusCart from "../../assets/CampusCartLogo.png";
+import CampusCart from "../Auth/CampusCartLogo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -26,7 +27,7 @@ const Header = () => {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                Offcanvas
+                CampusCart
               </h5>
               <button
                 type="button"
@@ -43,11 +44,16 @@ const Header = () => {
                   </a>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/inventory">
+                    Inventory
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link" href="#">
-                    Link
+                    Orders
                   </a>
                 </li>
-                <li className="nav-item dropdown">
+                {/* <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
                     href="#"
@@ -77,9 +83,9 @@ const Header = () => {
                       </a>
                     </li>
                   </ul>
-                </li>
+                </li> */}
               </ul>
-              <form className="d-flex mt-3" role="search">
+              {/* <form className="d-flex mt-3" role="search">
                 <input
                   className="form-control me-2"
                   type="search"
@@ -89,7 +95,13 @@ const Header = () => {
                 <button className="btn btn-outline-success" type="submit">
                   Search
                 </button>
-              </form>
+              </form> */}
+            </div>
+            <div className="offcanvas-footer mt-auto p-3">
+              <button className="btn btn-outline-secondary w-100" type="button">
+                <i className="bi bi-gear" style={{ fontSize: "20px" }}></i>{" "}
+                Settings
+              </button>
             </div>
           </div>
         </div>
