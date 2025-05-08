@@ -10,13 +10,30 @@ import {
   Grid,
 } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleLogin = () => {};
+  const handleLogin = async () => {
+    try {
+      const credentials = { email, password };
+      const response = await axios.post(
+        "http://localhost:5001/api/service-providers/login",
+        credentials
+      );
+
+      localStorage.setItem("serviceProvider", JSON.stringify(response.data));
+      navigate("/inventory");
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Invalid email or password. Please try again.");
+    }
+  };
 
   return (
     <>

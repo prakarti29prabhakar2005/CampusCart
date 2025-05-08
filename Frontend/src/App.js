@@ -11,6 +11,7 @@ import AdminDashboard from "./Admin/Dashboard/AdminDashboard";
 import SplashScreen from "./Components/Auth/SplashScreen";
 import ServiceProviderDashboard from "./ServiceProvider/Dashboard/ServiceProviderDashboard";
 import InventoryPage from "./ServiceProvider/components/InventoryManagement/InventoryPage";
+import ServiceProviderSettings from "./ServiceProvider/components/Setting/ServiceProviderSettings";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
           element={<ServiceProviderDashboard />}
         />
         <Route path="/inventory" element={<InventoryPage />} />
+        <Route
+          path="/service-provider-settings/:id"
+          element={<ServiceProviderSettings />}
+        />
         <Route
           path="/admin"
           element={

@@ -22,28 +22,34 @@ const RegisterPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("Register clicked");
-    try {
-      const payload = { name, email, password, role };
-      const endpoint =
-        role === "serviceProvider"
-          ? "http://localhost:5001/api/service-providers"
-          : "http://localhost:5001/api/customer";
 
+    const payload = { name, email, password };
+    const endpoint =
+      role === "serviceProvider"
+        ? "http://localhost:5001/api/service-providers"
+        : "http://localhost:5001/api/customer";
+
+    try {
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+
       if (response.ok) {
+        const data = await response.json();
         if (role === "serviceProvider") {
+          localStorage.setItem("serviceProvider", JSON.stringify(data));
           navigate("/service-provider-dashboard");
+        } else {
+          alert("Customer registration successful (redirect not set)");
         }
       } else {
         alert("Registration failed!");
       }
     } catch (error) {
       console.error("Error:", error.message);
+      alert("Something went wrong. Please try again.");
     }
   };
 

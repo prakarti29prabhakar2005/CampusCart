@@ -2,6 +2,9 @@ import CampusCart from "../Auth/CampusCartLogo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const serviceProvider = JSON.parse(localStorage.getItem("serviceProvider"));
+  const serviceProviderId = serviceProvider?._id;
+
   return (
     <>
       <nav className="navbar bg-body-tertiary fixed-top">
@@ -53,56 +56,24 @@ const Header = () => {
                     Orders
                   </a>
                 </li>
-                {/* <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Dropdown
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </li> */}
               </ul>
-              {/* <form className="d-flex mt-3" role="search">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
+            </div>
+            {serviceProviderId && (
+              <div className="offcanvas-footer mt-auto p-3">
+                <button
+                  className="btn btn-outline-secondary w-100"
+                  type="button"
+                >
+                  <Link
+                    to={`/service-provider-settings/${serviceProviderId}`}
+                    className="text-decoration-none text-dark"
+                  >
+                    <i className="bi bi-gear" style={{ fontSize: "20px" }}></i>{" "}
+                    Settings
+                  </Link>
                 </button>
-              </form> */}
-            </div>
-            <div className="offcanvas-footer mt-auto p-3">
-              <button className="btn btn-outline-secondary w-100" type="button">
-                <i className="bi bi-gear" style={{ fontSize: "20px" }}></i>{" "}
-                Settings
-              </button>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
