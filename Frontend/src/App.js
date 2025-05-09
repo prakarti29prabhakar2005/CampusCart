@@ -10,8 +10,9 @@ import ProtectedRoute from "./Routes/ProtectedRoute";
 import AdminDashboard from "./Admin/Dashboard/AdminDashboard";
 import SplashScreen from "./Components/Auth/SplashScreen";
 import ServiceProviderDashboard from "./ServiceProvider/Dashboard/ServiceProviderDashboard";
+import UserDashboard from "./users/Dashboard/UserDashboard";
+import UserRegister from "./users/Dashboard/UserRegister";
 import InventoryPage from "./ServiceProvider/components/InventoryManagement/InventoryPage";
-import ServiceProviderSettings from "./ServiceProvider/components/Setting/ServiceProviderSettings";
 import OrderPage from "./ServiceProvider/components/Orders/OrderPage";
 
 function App() {
@@ -35,11 +36,12 @@ function App() {
         <Route
           path="/customer"
           element={
-            <ProtectedRoute role="customer">
-              {/* <CustomerDashboard /> */}
-            </ProtectedRoute>
+           
+              <UserDashboard /> 
+            
           }
         />
+        <Route path="/userRegister" element={<UserRegister />} />
         <Route
           path="/service-provider"
           element={
