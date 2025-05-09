@@ -10,4 +10,9 @@ const ServiceProviderSchema = new mongoose.Schema({
   profilePicture: { type: String },
 });
 
-module.exports = mongoose.model("ServiceProvider", ServiceProviderSchema);
+const ServiceProvider = mongoose.model(
+  "ServiceProvider",
+  ServiceProviderSchema
+);
+
+module.exports = ServiceProvider;

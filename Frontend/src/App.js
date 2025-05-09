@@ -12,6 +12,7 @@ import SplashScreen from "./Components/Auth/SplashScreen";
 import ServiceProviderDashboard from "./ServiceProvider/Dashboard/ServiceProviderDashboard";
 import InventoryPage from "./ServiceProvider/components/InventoryManagement/InventoryPage";
 import ServiceProviderSettings from "./ServiceProvider/components/Setting/ServiceProviderSettings";
+import OrderPage from "./ServiceProvider/components/Orders/OrderPage";
 
 function App() {
   return (
@@ -25,18 +26,12 @@ function App() {
           element={<ServiceProviderDashboard />}
         />
         <Route path="/inventory" element={<InventoryPage />} />
+        <Route path="/orders" element={<OrderPage />} />
         <Route
-          path="/service-provider-settings/:id"
-          element={<ServiceProviderSettings />}
+          path="/service-provider-dashboard/:id"
+          element={<ServiceProviderDashboard />}
         />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute role="admin">
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path="/customer"
           element={
@@ -49,7 +44,7 @@ function App() {
           path="/service-provider"
           element={
             <ProtectedRoute role="serviceProvider">
-              {/* <ServiceProviderDashboard /> */}
+              <ServiceProviderDashboard />
             </ProtectedRoute>
           }
         />

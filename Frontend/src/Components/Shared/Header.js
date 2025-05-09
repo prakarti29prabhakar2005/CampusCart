@@ -42,9 +42,12 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link
+                    className="nav-link active"
+                    to="/service-provider-dashboard"
+                  >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/inventory">
@@ -52,28 +55,28 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/orders">
                     Orders
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
-            {serviceProviderId && (
-              <div className="offcanvas-footer mt-auto p-3">
-                <button
-                  className="btn btn-outline-secondary w-100"
-                  type="button"
-                >
-                  <Link
-                    to={`/service-provider-settings/${serviceProviderId}`}
-                    className="text-decoration-none text-dark"
-                  >
-                    <i className="bi bi-gear" style={{ fontSize: "20px" }}></i>{" "}
-                    Settings
-                  </Link>
-                </button>
-              </div>
-            )}
+            <div className="offcanvas-footer mt-auto p-3 w-100">
+              <button
+                className="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center"
+                title="Logout"
+                onClick={() => {
+                  localStorage.removeItem("serviceProvider");
+                  window.location.href = "/login";
+                }}
+              >
+                <i
+                  className="bi bi-box-arrow-right me-2"
+                  style={{ fontSize: "20px" }}
+                ></i>
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </nav>

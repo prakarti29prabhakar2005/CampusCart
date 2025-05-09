@@ -28,7 +28,7 @@ const LoginPage = () => {
       );
 
       localStorage.setItem("serviceProvider", JSON.stringify(response.data));
-      navigate("/inventory");
+      navigate(`/service-provider-dashboard/${response.data._id}`);
     } catch (err) {
       console.error("Login error:", err);
       setError("Invalid email or password. Please try again.");

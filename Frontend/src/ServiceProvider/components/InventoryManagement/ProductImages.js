@@ -10,6 +10,8 @@ const productImageMap = {
   MakeupBlenderSponge: require("../../assets/InventoryProducts/Bronson-Professional-Pink-Ultimate-Classic-Beauty-Blender-Makeup-Sponge.webp"),
   DairyMilk: require("../../assets/InventoryProducts/Cadbury-Dairy-Milk-Chocolate-Bar.webp"),
   DustbinPlasticBag: require("../../assets/InventoryProducts/Cello-Duo-Plastic-Dustbin-Dry-Waste-20-Liters-Green-and-Blue-2-In-1-Trash-Can-Plastic-Garbage-Bins.webp"),
+  GelPen: require("../../assets/InventoryProducts/Cello-Duo-Plastic-Dustbin-Dry-Waste-20-Liters-Green-and-Blue-2-In-1-Trash-Can-Plastic-Garbage-Bins.webp"),
+  ClinicPlusShampoo: require("../../assets/InventoryProducts/Clinic-Plus-Strength-Shine-Shampoo-With-Egg-Protein.webp")
 };
 
 export default productImageMap;
