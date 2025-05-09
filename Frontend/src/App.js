@@ -10,8 +10,9 @@ import ProtectedRoute from "./Routes/ProtectedRoute";
 import AdminDashboard from "./Admin/Dashboard/AdminDashboard";
 import SplashScreen from "./Components/Auth/SplashScreen";
 import ServiceProviderDashboard from "./ServiceProvider/Dashboard/ServiceProviderDashboard";
+import UserDashboard from "./users/Dashboard/UserDashboard";
+import UserRegister from "./users/Dashboard/UserRegister";
 import InventoryPage from "./ServiceProvider/components/InventoryManagement/InventoryPage";
-import ServiceProviderSettings from "./ServiceProvider/components/Setting/ServiceProviderSettings";
 
 function App() {
   return (
@@ -26,10 +27,6 @@ function App() {
         />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route
-          path="/service-provider-settings/:id"
-          element={<ServiceProviderSettings />}
-        />
-        <Route
           path="/admin"
           element={
             <ProtectedRoute role="admin">
@@ -40,11 +37,12 @@ function App() {
         <Route
           path="/customer"
           element={
-            <ProtectedRoute role="customer">
-              {/* <CustomerDashboard /> */}
-            </ProtectedRoute>
+           
+              <UserDashboard /> 
+            
           }
         />
+        <Route path="/userRegister" element={<UserRegister />} />
         <Route
           path="/service-provider"
           element={
